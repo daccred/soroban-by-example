@@ -1,16 +1,116 @@
 ---
+title: Soroban By Example · Simple Soroban Starter Pack
+content:
+  width: 100%
 layout: landing
+logo: false
 ---
 
-import { HomePage } from 'vocs/components'
+import { HomePage } from 'vocs/components';
 
-<HomePage.Root>
-  <HomePage.Logo />
-  <HomePage.Tagline>A carefully curated soroban starter pack to get you writing for the stellar blockchain faster than you can say jack</HomePage.Tagline>
-  <HomePage.InstallPackage name="vocs" type="init" />
-  <HomePage.Description>This is a description of my documentation website.</HomePage.Description>
-  <HomePage.Buttons>
-    <HomePage.Button href="/hello-world" variant="accent">Get started</HomePage.Button>
-    <HomePage.Button href="https://github.com/kohasummons/soroban-by-example">GitHub</HomePage.Button>
-  </HomePage.Buttons>
-</HomePage.Root>
+<div className="absolute max-w-[1120px] mx-auto w-full top-20 bottom-0 bg-[url('/colosseum-light.svg')] dark:bg-[url('/colosseum.svg')] bg-no-repeat max-sm:w-[200%] max-sm:-left-[200px] max-sm:hidden" />
+
+<div className="max-w-[1120px] mx-auto vp-doc relative px-[24px] mb-[96px] mt-[32px] md:px-0 md:mb-[64px]">
+  <div className="pt-[48px] max-sm:pt-0">
+    <div className="max-sm:px-0 flex flex-col gap-8 justify-between md:mx-auto z-0 max-md:justify-center">
+      <div className="space-y-8 max-w-[500px] flex flex-col mx-auto items-center max-md:items-center">
+        <img className="h-[102px] dark:invert-[1] max-sm:h-[60px]" src="/sbe-text-light.svg" alt="Soroban-by-Example logo" />
+        <div className="font-regular text-[21px] max-sm:text-[18px] text-center text-[#919193] max-md:text-center">A carefully <span className="text-black dark:text-white">curated</span>, <span className="text-black dark:text-white">lightweight</span>, <span className="text-black dark:text-white">composable</span>, and <span className="text-black dark:text-white">tweakable</span> Soroban starter pack to get you writing for the stellar blockchain faster than you can say jack</div>
+        <div className="flex justify-center space-x-2">
+          <HomePage.Button href="/getting-started" variant="accent">Get started</HomePage.Button>
+          <HomePage.Button href="/introduction">Why Viem?</HomePage.Button>
+          <HomePage.Button href="https://github.com/kohasummons/soroban-by-example">GitHub</HomePage.Button>
+        </div>
+      </div>
+      <div className="flex flex-col md:mx-auto justify-between w-[440px] space-y-10 max-lg:w-[300px] max-md:hidden">
+    <div className="flex justify-between space-x-2">
+    <a href="https://github.com/wevm/viem/stargazers" className="cursor-pointer h-[36px] max-w-[120px] flex-1 relative rounded-lg overflow-hidden border border-black/10 dark:border-white/20" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
+      <div className="absolute flex z-[1] p-[6px] h-full w-full">
+        <div className="flex-1 bg-white/60 dark:bg-black/40 flex items-center w-full h-full rounded-md">
+          <span className="font-medium text-[15px] opacity-80 leading-none w-full text-center">stars</span>
+        </div>
+        <div className="flex items-center h-full px-2">
+          <span className="font-medium text-[15px] text-center leading-none w-full text-black dark:text-white">⏳</span>
+        </div>
+      </div>
+      <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/5 dark:bg-white/5 z-0" />
+      <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-blur-[2px] backdrop-filter z-0" />
+    </a>
+    <a href="https://app.codecov.io/gh/kohasummons/soroban-by-example" className="cursor-pointer h-[36px] max-w-[160px] flex-1 relative rounded-lg overflow-hidden border border-green-400/50" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
+      <div className="absolute flex z-[1] p-[6px] h-full w-full">
+        <div className="flex-1 bg-white/60 dark:bg-black/40 flex items-center w-full h-full rounded-md">
+          <span className="font-medium text-[15px] leading-none opacity-80 w-full text-center">coverage</span>
+        </div>
+        <div className="flex items-center h-full px-2">
+          <span className="font-medium text-[15px] leading-none text-center w-full text-green-400">⚡</span>
+        </div>
+      </div>
+      <div className="absolute left-0 right-0 top-0 bottom-0 bg-green-400 opacity-10 z-[0]" />
+      <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-blur-[2px] backdrop-filter z-[0]" />
+    </a>
+    <a href="https://github.com/wevm/viem/blob/main/LICENSE" className="cursor-pointer h-[36px] max-w-[130px] flex-1 relative rounded-lg overflow-hidden border border-black/10 dark:border-white/20 max-lg:hidden" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
+      <div className="absolute flex z-[1] p-[6px] h-full w-full">
+        <div className="flex-1 bg-white/60 dark:bg-black/40 flex items-center w-full h-full rounded-md">
+          <span className="font-medium text-[15px] leading-none opacity-80 w-full text-center">license</span>
+        </div>
+        <div className="flex items-center h-full px-2">
+          <span className="font-medium text-[15px] leading-none text-center w-full text-black dark:text-white">MIT</span>
+        </div>
+      </div>
+      <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/5 dark:bg-white/5 z-[0]" />
+      <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-blur-[2px] backdrop-filter z-[0]" />
+    </a>
+    </div>
+    </div>
+    </div>
+    <div className="flex justify-between flex-wrap mt-16 max-sm:hidden">
+      <div className="pr-2 w-1/4 max-lg:pb-3 max-sm:px-0 max-lg:w-1/2 max-sm:w-full z-0">
+        <div className="relative w-full h-[168px] max-lg:h-[142px] overflow-hidden">
+          <div className="border-black dark:border-white border border-solid border-opacity-10 dark:border-opacity-10 rounded-lg h-full px-5 py-6 absolute z-10 flex flex-col justify-between w-full">
+            <div className="text-xl font-medium text-black dark:text-white">Basic</div>
+            <div className="text-[17px] text-[#919193]"> Learn the fundamentals of Soroban</div>
+            <a href="/introduction" className="text-[17px]">See more</a>
+          </div>
+          <div className="absolute left-0 right-0 top-0 bottom-0 dark:bg-[#313136] opacity-20 z-0" />
+          <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-filter backdrop-blur-[2px] z-0" />
+        </div>
+      </div>
+      <div className="pl-2 pr-2 max-sm:px-0 max-lg:pb-3 max-lg:pr-0 w-1/4 max-lg:w-1/2 max-sm:w-full z-0">
+        <div className="relative w-full h-[168px] max-lg:h-[142px]">
+          <div className="border-black dark:border-white border border-solid border-opacity-10 dark:border-opacity-10 rounded-lg h-full px-5 py-6 absolute z-10 flex flex-col justify-between w-full">
+            <div className="text-xl font-medium text-black dark:text-white">Testing</div>
+            <div>
+            <div className="text-[17px] text-[#919193]"> Learn how to write tests for simple concepts</div>
+            <a href="/introduction" className="text-[17px]">See more</a>
+            </div>
+          </div>
+          <div className="absolute left-0 right-0 top-0 bottom-0 dark:bg-[#313136] opacity-20 z-0" />
+          <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-filter backdrop-blur-[2px] z-0" />
+        </div>
+      </div>
+      <div className="pl-2 pr-2 max-lg:pb-3 max-sm:px-0 max-lg:pl-0 w-1/4 max-lg:w-1/2 max-sm:w-full z-0">
+        <div className="relative w-full h-[168px] max-lg:h-[142px]">
+          <div className="border-black dark:border-white border border-solid border-opacity-10 dark:border-opacity-10 rounded-lg h-full px-5 py-6 absolute z-10 flex flex-col justify-between w-full">
+            <div className="text-xl font-medium text-black dark:text-white">ERC</div>
+            <div className="text-[17px] text-[#919193]">Explore the Soroban equivalent for your ERC / EIP based smart contracts and proposals</div>
+            <a href="/introduction" className="text-[17px]">See more</a>
+          </div>
+          <div className="absolute left-0 right-0 top-0 bottom-0 dark:bg-[#313136] opacity-20 z-0" />
+          <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-filter backdrop-blur-[2px] z-0" />
+        </div>
+      </div>
+      <div className="pl-2 w-1/4 max-sm:px-0 max-lg:w-1/2 max-sm:w-full z-0">
+        <div className="relative w-full h-[168px] max-lg:h-[142px]">
+          <div className="border-black dark:border-white border border-solid border-opacity-10 dark:border-opacity-10 rounded-lg h-full px-5 py-6 absolute z-10 flex flex-col justify-between w-full">
+            <div className="text-xl font-medium text-black dark:text-white">Applications</div>
+            <div className="text-[17px] text-[#919193]">Various implementations for DAO, Airdrops and more</div>
+            <a href="/introduction" className="text-[17px]">See more</a>
+          </div>
+          <div className="absolute left-0 right-0 top-0 bottom-0 dark:bg-[#313136] opacity-20 z-0" />
+          <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-filter backdrop-blur-[2px] z-0" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

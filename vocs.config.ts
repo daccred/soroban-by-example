@@ -7,6 +7,8 @@ export default defineConfig({
   titleTemplate: '%s - Soroban-by-example',
   sidebar,
   rootDir: '.',
+  iconUrl: {light: '/sbe-icon-light.svg', dark: '/sbe-icon-dark.svg'},
+  logoUrl: {light: '/sbe-icon-light.svg', dark: '/sbe-icon-dark.svg'},
   socials: [
     {
       icon: 'github',
@@ -64,6 +66,10 @@ export default defineConfig({
       if (documentId.startsWith('pages/docs')) return 2
       return 1
     },
+  },
+  editLink: {
+    pattern: 'https://github.com/kohasummons/soroban-by-example/edit/main/pages/:path',
+    text: 'Suggest changes to this page',
   },
   
 })
