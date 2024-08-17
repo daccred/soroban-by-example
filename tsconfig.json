@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "paths": { 
-      "@components/*": ["./docs/components/*"]
+      "@components/*": ["./components/*"]
     },
 
     /* Bundler mode */
@@ -23,5 +23,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "docs/components/index.js"]
+  "include": ["**/*.ts", "**/*.tsx", "docs/components/index.ts"]
 }
