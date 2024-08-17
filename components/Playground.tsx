@@ -34,6 +34,7 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
 
   return (
     <div style={wrapperStyle}>
+      <button >OpenOkashi</button>
       {isLoading && (
         <div style={loadingOverlayStyle}>
           <p style={loadingTextStyle}>Loading playground...</p>
