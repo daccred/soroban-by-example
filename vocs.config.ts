@@ -6,6 +6,7 @@ export default defineConfig({
   description: 'Learn soroban by studing simple snipperts',
   titleTemplate: '%s - Soroban-by-example',
   sidebar,
+  rootDir: '.',
   socials: [
     {
       icon: 'github',
@@ -17,7 +18,7 @@ export default defineConfig({
     },
     {
       icon: 'x',
-      link: 'https://x.com/x',
+      link: 'https://x.com/stellar',
     },
   ],
   theme: {
@@ -27,7 +28,6 @@ export default defineConfig({
     },
   },
   topNav: [
-    { text: 'Docs', link: '/introduction', match: '/docs' },
     {
       text: 'Playground',
       items: [
@@ -46,7 +46,7 @@ export default defineConfig({
       items: [
         {
           text: `Learn Soroban`,
-          link: `/docs`,
+          link: `/introduction`,
         },
         {
           text: 'Changelog',
