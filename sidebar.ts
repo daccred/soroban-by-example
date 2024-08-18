@@ -30,6 +30,14 @@ const sidebar = [
             { text: 'Admin', link: '/admin-interface' },
         ],
     },
+    {
+      text: 'Advanced',
+      items: [ 
+            { text: 'Only Owner', link: '/only-owner' },
+            { text: 'Multisig', link: '/multisig' },
+            { text: 'Loops', link: '/loops' },
+        ],
+    },
 ]
 
 export default sidebar

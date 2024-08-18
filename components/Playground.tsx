@@ -51,14 +51,14 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
 
   return (
     <div style={wrapperStyle}>
-   
+      <button>OpenOkashi</button>
       {isLoading && (
         <div style={loadingOverlayStyle}>
           <p style={loadingTextStyle}>Loading playground...</p>
         </div>
       )}
 
-      {!isLoading && (
+{!isLoading && (
         <div className='absolute right-0 w-full'>
           <a href={`https://okashi.dev/playground/${okashiID}`} target='_blank' style={buttonStyle}>
             <span>
