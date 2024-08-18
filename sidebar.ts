@@ -31,7 +31,7 @@ const sidebar = [
         ],
     },
     {
-      text: 'Advanced',
+      text: 'Applications',
       items: [ 
             { text: 'Only Owner', link: '/only-owner' },
             { text: 'Multisig', link: '/multisig' },
