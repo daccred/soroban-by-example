@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { OkashiSvg } from './icons';
+import { OkashiSvg } from './Icons';
 
 type PlaygroundProps = {
   okashiID: string
 }
 
+// style variable
 const wrapperStyle = {
   width: '100%',        
   position: 'relative' as const,
@@ -50,6 +51,7 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
 
   return (
     <div style={wrapperStyle}>
+      <button >OpenOkashi</button>
       {isLoading && (
         <div style={loadingOverlayStyle}>
           <p style={loadingTextStyle}>Loading playground...</p>
