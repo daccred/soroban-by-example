@@ -40,6 +40,5 @@ const sidebar = [
         ],
     },
 ]
- main
 
 export default sidebar;
