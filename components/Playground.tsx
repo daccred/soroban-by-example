@@ -6,16 +6,16 @@ type PlaygroundProps = {
 }
 
 const wrapperStyle = {
-  width: '600px',
-  height: '600px',
-  position: 'relative' as const
+  width: '100%',        
+  position: 'relative' as const,
+  padding: 0,    
 }
 
 const loadingOverlayStyle = {
   position: 'absolute' as const,
   inset: 0,
-  width: '600px',
-  height: '600px',
+  width: '100%',
+  height: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -45,7 +45,6 @@ const buttonStyle = {
   transition: 'background 0.2s ease-in-out',
 }
 
-
 export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -60,7 +59,7 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
       <div>
         <a href={`https://okashi.dev/playground/${okashiID}`} target='_blank' style={buttonStyle}>
           <span>
-            <OkashiSvg style={{width: '20px', height: '24px', color: '#fff' }}/>
+            <OkashiSvg style={{ width: '20px', height: '24px', color: '#fff' }} />
           </span>
           <span>
             Run on Okashi
@@ -69,7 +68,12 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
       </div>
 
       <iframe
-        width="100%" height="600px"
+        style={{
+          width: '100%',
+          height: 'auto',    
+          minHeight: '600px',
+          border: 'none',
+        }}
         src={`https://okashi-proxy-production.up.railway.app/playground/${okashiID}`}
         onLoad={() => setTimeout(() => setIsLoading(false), 1000)}
         title="Okashi Playground"
