@@ -58,16 +58,18 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
         </div>
       )}
 
-      <div>
-        <a href={`https://okashi.dev/playground/${okashiID}`} target='_blank' style={buttonStyle}>
-          <span>
-            <OkashiSvg style={{ width: '20px', height: '24px', color: '#fff' }} />
-          </span>
-          <span>
-            Run on Okashi
-          </span>
-        </a>
-      </div>
+      {!isLoading && (
+        <div className='absolute top-6 right-0 w-full'>
+          <a href={`https://okashi.dev/playground/${okashiID}`} target='_blank' style={buttonStyle}>
+            <span>
+              <OkashiSvg style={{ width: '20px', height: '24px', color: '#fff' }} />
+            </span>
+            <span>
+              Run on Okashi
+            </span>
+          </a>
+        </div>
+      )}
 
       <iframe
         style={{
