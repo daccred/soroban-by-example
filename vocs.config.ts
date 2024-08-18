@@ -6,15 +6,17 @@ export default defineConfig({
   description: "Learn soroban by exploring code samples",
   titleTemplate: "%s - soroban-by-example",
   /**@see https://vocs.dev/docs/api/config#element */
-  // head: (
-  //    <>
+  // head() {
+  //    return (
+  // <>
   //      <meta property="og:type" content="website" />
   //      <meta property="og:title" content="viem · TypeScript Interface for Ethereum" />
   //      <meta property="og:image" content="https://viem.sh/og-image.png" />
   //      <meta property="og:url" content="https://viem.sh" />
   //      <meta property="og:description" content="Build reliable Ethereum apps & libraries with lightweight, composable, & type-safe modules from viem." />
   //    </>
-  //  ),
+  // )
+  //  },
   sidebar,
   rootDir: ".",
   iconUrl: { light: "/sbe-icon-light.svg", dark: "/sbe-icon-dark.svg" },

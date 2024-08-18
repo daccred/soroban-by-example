@@ -3,6 +3,7 @@
 .nuxt
 .next
 .env
+dist
 
 # Generated files
 .cache-loader
