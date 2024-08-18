@@ -28,6 +28,7 @@ const sidebar = [
       items: [ 
             { text: 'Token', link: '/token-interface' },
             { text: 'Admin', link: '/admin-interface' },
+            { text: "Timelock", link: "/timelock" },
         ],
     },
     {
@@ -39,5 +40,6 @@ const sidebar = [
         ],
     },
 ]
+ main
 
-export default sidebar
+export default sidebar;
