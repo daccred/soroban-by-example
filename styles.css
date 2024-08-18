@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,15 +7,21 @@
 
 /* styles.css */
 
+:root {
+  --font-geist-sans: 'GeistSans', sans-serif;
+  --font-geist-mono: 'GeistMono', monospace;
+}
+
+
 @font-face {
-    font-family: 'Mona Sans';
+    font-family: 'Geist Mono';
     src:
-      url('Mona-Sans.woff2') format('woff2 supports variations'),
-      url('Mona-Sans.woff2') format('woff2-variations');
+      url('/fonts/GeistMonoVF.woff') format('woff2 supports variations'),
+      url('/fonts/GeistMonoVF.woff2') format('woff2-variations');
     font-weight: 200 900;
     font-stretch: 75% 125%;
   }
   
   html {
-    font-family: 'Mona Sans';
+    font-family: 'Geist Mono';
   }
