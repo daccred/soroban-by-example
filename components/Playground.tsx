@@ -60,7 +60,7 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
 
 {!isLoading && (
         <div className='absolute right-0 w-full'>
-          <a href={`https://okashi.dev/playground/${okashiID}`} target='_blank' style={buttonStyle}>
+         <a href={`https://okashi.dev/playground/${okashiID}`} target='_blank' style={buttonStyle}>
             <span>
               <OkashiSvg style={{ width: '20px', height: '24px', color: '#fff' }} />
             </span>
