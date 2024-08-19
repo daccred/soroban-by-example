@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { OkashiSvg } from './icons';
+import { OkashiSvg } from './Icons';
 
 type PlaygroundProps = {
   okashiID: string
