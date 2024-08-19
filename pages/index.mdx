@@ -13,16 +13,23 @@ import { HomePage } from 'vocs/components';
 <div className="max-w-[1120px] mx-auto vp-doc relative px-[24px] mb-[96px] mt-[32px] md:px-0 md:mb-[64px]">
   <div className="pt-[48px] max-sm:pt-0">
     <div className="max-sm:px-0 flex flex-col gap-8 justify-between md:mx-auto z-0 max-md:justify-center">
-      <div className="space-y-8 max-w-[500px] flex flex-col mx-auto items-center max-md:items-center">
-        <img className="h-[102px] dark:invert-[1] max-sm:h-[60px]" src="/sbe-text-light.svg" alt="Soroban-by-Example logo" />
-        <div className="font-regular text-[21px] max-sm:text-[18px] text-center text-[#919193] max-md:text-center">A carefully <span className="text-black dark:text-white">curated</span>, <span className="text-black dark:text-white">lightweight</span>, <span className="text-black dark:text-white">composable</span>, and <span className="text-black dark:text-white">tweakable</span> Soroban starter pack to get you writing for the stellar blockchain faster than you can say jack</div>
-        <div className="flex justify-center space-x-2">
-          <HomePage.Button href="/getting-started" variant="accent">Get started</HomePage.Button>
-          <HomePage.Button href="/introduction">Motivation?</HomePage.Button>
-          <HomePage.Button href="https://github.com/kohasummons/soroban-by-example">GitHub</HomePage.Button>
-        </div>
-      </div>
-      <div className="flex flex-col md:mx-auto justify-between w-[440px] space-y-10 max-lg:w-[300px] max-md:hidden">
+      <div className="space-y-8 max-w-[500px] flex flex-col mx-auto items-center text-center">
+    <img className="h-[102px] dark:invert-[1] max-sm:h-[60px]" src="/sbe-text-light.svg" alt="Soroban-by-Example logo" />
+    <div className="font-regular text-[21px] max-sm:text-[18px] text-[#919193]">
+        A carefully <span className="text-black dark:text-white">curated</span>, 
+        <span className="text-black dark:text-white">lightweight</span>, 
+        <span className="text-black dark:text-white">composable</span>, 
+        and <span className="text-black dark:text-white">tweakable</span> Soroban starter pack to get you writing for the Stellar blockchain faster than you can say Jack.
+    </div>
+    <div className="flex justify-center flex-wrap gap-2">
+        <HomePage.Button href="/getting-started" variant="accent">Get started</HomePage.Button>
+        <HomePage.Button href="/introduction">Motivation?</HomePage.Button>
+        <HomePage.Button href="https://github.com/kohasummons/soroban-by-example">GitHub</HomePage.Button>
+    </div>
+</div>
+
+      
+      <div className="flex flex-col md:mx-auto justify-between w-[440px] space-y-10 max-lg:w-[300px]">
     <div className="flex justify-between space-x-2">
     <a href="https://github.com/wevm/viem/stargazers" className="cursor-pointer h-[36px] max-w-[120px] flex-1 relative rounded-lg overflow-hidden border border-black/10 dark:border-white/20" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
       <div className="absolute flex z-[1] p-[6px] h-full w-full">
@@ -63,7 +70,7 @@ import { HomePage } from 'vocs/components';
     </div>
     </div>
     </div>
-    <div className="flex justify-between flex-wrap mt-16 max-sm:hidden">
+    <div className="flex justify-between flex-wrap mt-16 ">
       <div className="pr-2 w-1/4 max-lg:pb-3 max-sm:px-0 max-lg:w-1/2 max-sm:w-full z-0">
         <div className="relative w-full h-[180px] max-lg:h-[142px] overflow-hidden ">
           <div className="border-black dark:border-white border border-solid border-opacity-10 dark:border-opacity-10 rounded-lg h-full px-5 py-8 absolute z-10 flex flex-col justify-between w-full">
