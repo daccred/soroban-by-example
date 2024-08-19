@@ -38,7 +38,7 @@ const SoroboyWidget = () => {
         if (!inputText) return;
         setLoading(true);
 
-        const messageHistory = conversationHistory.map(({userInput, response}) => [
+        const messageHistory = conversationHistory.map(({ userInput, response }) => [
             { role: 'user', content: userInput },
             { role: 'assistant', content: response },
         ]).flat(1);
@@ -49,7 +49,7 @@ const SoroboyWidget = () => {
         const userInput = inputText;
 
         try {
-            const res = await fetch('http://localhost:5174/chat', {
+            const res = await fetch('https://sandbox.sorobanexamples.xyz/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const SoroboyWidget = () => {
         <div className="fixed bottom-5 right-5 z-50">
             {!expanded && (
                 <button onClick={handleButtonClick} className="px-4 py-2 bg-[#141414] text-white rounded-md shadow-lg">
-                    Generate with AI
+                    Generate with AI <span><SparkleSvg className='w-4 h-4 inline' /></span>
                 </button>
             )}
             {expanded && (
