@@ -10,9 +10,11 @@
   "dependencies": {
     "@geist-ui/react": "^2.2.5",
     "@types/react": "latest",
+    "langchain": "^0.2.16",
     "react": "latest",
     "react-dom": "latest",
     "typescript": "latest",
+    "vectordb": "^0.9.0",
     "vocs": "latest",
     "vocspin": "link:"
   },
