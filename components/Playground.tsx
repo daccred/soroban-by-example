@@ -78,7 +78,7 @@ export const Playground: React.FC<PlaygroundProps> = ({ okashiID }) => {
           minHeight: '600px',
           border: 'none',
         }}
-        src={`https://okashi-proxy-production.up.railway.app/playground/${okashiID}`}
+        src={`https://sandbox.sorobanexamples.xyz/playground/${okashiID}`}
         onLoad={() => setTimeout(() => setIsLoading(false), 1000)}
         title="Okashi Playground"
       />
