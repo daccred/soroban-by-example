@@ -2,6 +2,7 @@
   "name": "vocspin",
   "version": "0.0.0",
   "type": "module",
+  "presets": ["@babel/preset-env"],
   "scripts": {
     "dev": "vocs dev",
     "build": "vocs build",
@@ -13,12 +14,16 @@
     "langchain": "^0.2.16",
     "react": "latest",
     "react-dom": "latest",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^4.0.0",
     "typescript": "latest",
     "vectordb": "^0.9.0",
     "vocs": "latest",
     "vocspin": "link:"
   },
   "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10"

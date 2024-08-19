@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @variants responsive {
+    .left-unset {
+      left: unset;
+    }
+  }
+}
+
 /* styles/globals.css */
 
 /* styles.css */

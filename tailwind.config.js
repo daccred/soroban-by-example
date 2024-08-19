@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -15,5 +17,13 @@ export default {
   },
   darkMode: "class",
   important: true,
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant, e }) {
+      addVariant('not-first', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`not-first${separator}${className}`)}:not(:first-child)`
+        })
+      })
+    }),
+  ],
 };
