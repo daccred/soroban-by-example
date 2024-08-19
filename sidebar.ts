@@ -24,11 +24,11 @@ const sidebar = [
         ],
     },
     {
-      text: 'Interface',
+      text: 'ERC',
       items: [ 
-            { text: 'Token', link: '/token-interface' },
-            { text: 'Admin', link: '/admin-interface' },
-            { text: "Timelock", link: "/timelock" },
+            { text: 'Token Interface (SEP)', link: '/token-interface' },
+            { text: 'Admin Interface(SEP)', link: '/admin-interface' },
+            { text: "Timelock Interface(SEP)", link: "/timelock" },
         ],
     },
     {
@@ -40,6 +40,5 @@ const sidebar = [
         ],
     },
 ]
- main
 
 export default sidebar;
