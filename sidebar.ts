@@ -28,7 +28,7 @@ const sidebar = [
       items: [ 
             { text: 'Token Interface (SEP)', link: '/token-interface' },
             { text: 'Admin Interface(SEP)', link: '/admin-interface' },
-            { text: "Timelock Interface(SEP)", link: "/timelock" },
+            { text: "Timelock", link: "/timelock" },
         ],
     },
     {
