@@ -9,7 +9,7 @@ Using the Project
 ## Explore Examples:
 
 Visit various sections like "Hello World", "Counter App", and "ERC" to see example smart contracts.
-Each section provides a code snippet and explanations to help you understand and implement the functionality.
+Each section provides a code snippet and explanations to help you understand the concepts and implement the functionality.
 
 ## Smart Contract Development:
 
@@ -19,7 +19,7 @@ Use the provided snippets as templates and modify them according to your needs.
 ## Soroboy AI
 
 Ask Soroboy AI for assistance directly on the Soroban by Example website.
-Soroboy can help generate smart contract code snippets and answer questions about Soroban in a simple and easy-to-understand manner with context of the contract on the page.
+Soroboy✨ can help generate smart contract code snippets and answer questions about Soroban in a simple and easy-to-understand manner with context of the contract on the page.
 
 ## Code Generation
 
@@ -29,8 +29,17 @@ Examples:
 
 ```rust
 #[no_mangle]
-pub extern "C" fn hello() -> &'static str {
-    "Hello, Soroban!"
+#![no_std]
+use soroban_sdk::{contract, contractimpl, Env, log};
+
+#[contract]
+pub struct HelloWorld;
+
+#[contractimpl]
+impl HelloWorld {
+    pub fn say_hello(env: Env) {
+        log!(&env, "Hello World");
+    }
 }
 ```
 
