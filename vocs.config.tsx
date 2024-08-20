@@ -1,3 +1,4 @@
+import * as React from "react"; 
 import { defineConfig } from "vocs";
 import sidebar from "./sidebar";
 
@@ -6,17 +7,15 @@ export default defineConfig({
   description: "Learn soroban by exploring code samples",
   titleTemplate: "%s - soroban-by-example",
   /**@see https://vocs.dev/docs/api/config#element */
-  // head() {
-  //    return (
-  // <>
-  //      <meta property="og:type" content="website" />
-  //      <meta property="og:title" content="viem · TypeScript Interface for Ethereum" />
-  //      <meta property="og:image" content="https://viem.sh/og-image.png" />
-  //      <meta property="og:url" content="https://viem.sh" />
-  //      <meta property="og:description" content="Build reliable Ethereum apps & libraries with lightweight, composable, & type-safe modules from viem." />
-  //    </>
-  // )
-  //  },
+  head: ( 
+    <>
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Soroban by Examples · Learn soroban and build on Stellar by exploring code samples" />
+      <meta property="og:image" content="https://sorobanexamples.xyz/soroban-og.png" />
+      <meta property="og:url" content="https://sorobanexamples.xyz" />
+      <meta property="og:description" content="A carefully curated, lightweight, composable, and tweakable Soroban starter pack to get you writing for the Stellar blockchain faster than you can say Jack." />
+    </> 
+  ),
   sidebar,
   rootDir: ".",
   iconUrl: { light: "/sbe-icon-light.svg", dark: "/sbe-icon-dark.svg" },
@@ -49,6 +48,10 @@ export default defineConfig({
           text: "okashi",
           link: "/introduction",
         },
+        {
+          text: "Soroboy ✨",
+          link: "https://chatgpt.com/g/g-oW0Pjt0tu-soroboy",
+        }
       ],
     },
     {
