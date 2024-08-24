@@ -7,6 +7,7 @@ logo: false
 ---
 
 import { HomePage } from 'vocs/components';
+import { VideoModal } from '../components';
 
 <div className="absolute max-w-[1120px] mx-auto w-full top-20 bottom-0 bg-[url('/colosseum-light.svg')] dark:bg-[url('/colosseum.svg')] bg-no-repeat max-sm:w-[200%] max-sm:-left-[200px] max-sm:hidden" />
 
@@ -28,10 +29,9 @@ import { HomePage } from 'vocs/components';
     </div>
 </div>
 
-      
       <div className="flex flex-col md:mx-auto justify-between w-[440px] space-y-10 max-lg:w-[300px]">
     <div className="flex justify-between space-x-2">
-    <a href="https://github.com/wevm/viem/stargazers" className="cursor-pointer h-[36px] max-w-[120px] flex-1 relative rounded-lg overflow-hidden border border-black/10 dark:border-white/20" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
+    <a href="https://github.com/kohasummons/soroban-by-example/stargazers" className="cursor-pointer h-[36px] max-w-[120px] flex-1 relative rounded-lg overflow-hidden border border-black/10 dark:border-white/20" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
       <div className="absolute flex z-[1] p-[6px] h-full w-full">
         <div className="flex-1 bg-white/60 dark:bg-black/40 flex items-center w-full h-full rounded-md">
           <span className="font-medium text-[15px] opacity-80 leading-none w-full text-center">stars</span>
@@ -55,7 +55,7 @@ import { HomePage } from 'vocs/components';
       <div className="absolute left-0 right-0 top-0 bottom-0 bg-green-400 opacity-10 z-[0]" />
       <div className="absolute left-0 right-0 top-0 bottom-0 backdrop-blur-[2px] backdrop-filter z-[0]" />
     </a>
-    <a href="https://github.com/wevm/viem/blob/main/LICENSE" className="cursor-pointer h-[36px] max-w-[130px] flex-1 relative rounded-lg overflow-hidden border border-black/10 dark:border-white/20 max-lg:hidden" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
+    <a href="https://github.com/kohasummons/soroban-by-example" className="cursor-pointer h-[36px] max-w-[130px] flex-1 relative rounded-lg overflow-hidden border border-black/10 dark:border-white/20 max-lg:hidden" style={{ color: 'inherit' }} rel="noreferrer noopener" target="_blank">
       <div className="absolute flex z-[1] p-[6px] h-full w-full">
         <div className="flex-1 bg-white/60 dark:bg-black/40 flex items-center w-full h-full rounded-md">
           <span className="font-medium text-[15px] leading-none opacity-80 w-full text-center">license</span>
@@ -119,5 +119,8 @@ import { HomePage } from 'vocs/components';
       </div>
     </div>
 
+  </div>
+  <div className="w-full flex justify-center mt-12">
+   <VideoModal videoId="3kPTY7brKRk" />
   </div>
 </div>
