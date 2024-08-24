@@ -26,11 +26,11 @@ export const VideoModal: React.FC<VideoModalProps> = ({ videoId }) => {
       </button>
       {isOpen && (
         <div
-          className="fixed top-0 right-0 bottom-0 left-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-30"
+          className="p-4 md:p-0 fixed top-0 right-0 bottom-0 left-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-30"
           onClick={handleClose}
         >
           <div
-            className="bg-[--vocs-color_background] rounded-lg shadow-lg w-1/2 h-1/2"
+            className="bg-[--vocs-color_background] rounded-lg shadow-lg w-full md:w-1/2 h-2/6 lg:h-1/2"
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
