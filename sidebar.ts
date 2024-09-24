@@ -1,7 +1,7 @@
 const sidebar = [
     {
-      text: 'Introduction', 
-      items: [ 
+        text: 'Introduction',
+        items: [
             { text: 'Soroban', link: '/introduction' },
             { text: 'Installation', link: '/installation' },
             { text: 'Getting Started', link: '/getting-started' },
@@ -10,8 +10,8 @@ const sidebar = [
         ],
     },
     {
-      text: 'Basic',
-      items: [ 
+        text: 'Basic',
+        items: [
             { text: 'Integers', link: '/integers' },
             { text: 'Boolean', link: '/boolean' },
             { text: 'Strings', link: '/strings' },
@@ -21,24 +21,26 @@ const sidebar = [
             { text: 'Map', link: '/map' },
             { text: 'Address', link: '/address' },
             { text: 'Structs', link: '/structs' },
+            { text: 'Transient Storage', link: '/transient-storage' },
+            { text: 'Events', link: '/events' },
         ],
     },
     {
-      text: 'ERC',
-      items: [ 
+        text: 'ERC',
+        items: [
             { text: 'Token Interface (SEP)', link: '/token-interface' },
             { text: 'Admin Interface(SEP)', link: '/admin-interface' },
-            { text: "Timelock", link: "/timelock" },
+            { text: 'Timelock', link: '/timelock' },
         ],
     },
     {
-      text: 'Applications',
-      items: [ 
+        text: 'Applications',
+        items: [
             { text: 'Only Owner', link: '/only-owner' },
             { text: 'Multisig', link: '/multisig' },
             { text: 'Loops', link: '/loops' },
         ],
     },
-]
+];
 
 export default sidebar;
