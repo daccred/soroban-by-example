@@ -6,6 +6,23 @@ import { Playground } from '../components';
 // [!include ~/snippets/transient-storage.rs]
 ```
 
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}`  Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[contract]`  Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code it
+self.
+
+## Explanation
+
+The function sets an empty vector, loops from 0 to the number just before the set count and returns the sum as a logged output.
+
 ## Run in Playground
 
 <Playground okashiID="bvtqfxetaffslgktcaonauktgnzw" />
