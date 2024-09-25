@@ -12,6 +12,10 @@ import { Playground } from '../components';
 
 `use soroban_sdk::{contract, contractimpl, Env, log}`  Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
 
+`extern crate alloc` Sets the alloc package to be used in creating a vector for the transient storage functionality.
+
+`use alloc::vec::Vec` Targets the Vec attribute to be used in creating a list of values.
+
 `#[contract]`  Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
 
 `#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
