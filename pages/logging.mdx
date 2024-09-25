@@ -6,6 +6,23 @@ import { Playground } from '../components';
 // [!include ~/snippets/logging.rs]
 ```
 
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}`  Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[contract]`  Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code it
+self.
+
+## Explanation
+
+Simply logs the input string passed into the contract's core function.
+
 ## Run in Playground
 
 <Playground okashiID="cbmnmzbcmdcggkqfcwisisgppxil" />
