@@ -24,6 +24,7 @@ const sidebar = [
             { text: 'Transient Storage', link: '/transient-storage' },
             { text: 'Events', link: '/events' },
             { text: 'Logging', link: '/logging' },
+            { text: 'Persistent Storage', link: '/persistent-storage' },
         ],
     },
     {
