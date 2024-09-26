@@ -23,6 +23,10 @@ const sidebar = [
             { text: 'Structs', link: '/structs' },
             { text: 'Transient Storage', link: '/transient-storage' },
             { text: 'Events', link: '/events' },
+            { text: 'Logging', link: '/logging' },
+            { text: 'Persistent Storage', link: '/persistent-storage' },
+            { text: 'Data Locations', link: '/data-locations' },
+            { text: 'Temporary Storage', link: '/temporary-storage' },
         ],
     },
     {

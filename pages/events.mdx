@@ -6,6 +6,27 @@ import { Playground } from '../components';
 // [!include ~/snippets/events.rs]
 ```
 
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}`  Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`const COUNTER` Sets a counter variable to be used in setting the increment to track event functionality.
+
+`#[contract]`  Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code it
+self.
+
+## Explanation
+
+Uses the instance method on the storage module within env to get and settl the count, previously set and tracked in the COUNTER variable.
+
+Sets an increment variable to increase the counter value per interation. Count is increased by one with each run of the function. The output is a log of the incremented count.
+
 ## Run in Playground
 
 <Playground okashiID="bxzavanzzsvpnhhlrhvoerxhukdv" />

@@ -1,9 +1,9 @@
 import { Playground } from '../components';
 
-# Transient Storage [Soroban Transient Storage]
+# Logging [Soroban Logging]
 
 ```rust
-// [!include ~/snippets/transient-storage.rs]
+// [!include ~/snippets/logging.rs]
 ```
 
 ## Guide
@@ -11,10 +11,6 @@ import { Playground } from '../components';
 `#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
 
 `use soroban_sdk::{contract, contractimpl, Env, log}`  Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
-
-`extern crate alloc` Sets the alloc package to be used in creating a vector for the transient storage functionality.
-
-`use alloc::vec::Vec` Targets the Vec attribute to be used in creating a list of values.
 
 `#[contract]`  Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
 
@@ -25,8 +21,8 @@ self.
 
 ## Explanation
 
-The function sets an empty vector, loops from 0 to the number just before the set count and returns the sum as a logged output.
+Simply logs the input string passed into the contract's core function.
 
 ## Run in Playground
 
-<Playground okashiID="bvtqfxetaffslgktcaonauktgnzw" />
+<Playground okashiID="cbmnmzbcmdcggkqfcwisisgppxil" />

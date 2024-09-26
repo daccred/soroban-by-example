@@ -1,5 +1,5 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, symbol_short, Env, Symbol};
+use soroban_sdk::{contract, contractimpl, symbol_short, Env, Symbol, log};
 
 // Define a constant symbol for the counter name
 const COUNTER: Symbol = symbol_short!("COUNTER");
@@ -12,7 +12,7 @@ pub struct CounterEvent;
 impl CounterEvent {
   /// This function increments a counter and returns the new value.
 
-  pub fn increment(env: Env) -> u32 {
+  pub fn increment(env: Env) {
     // Get the current counter value. If it doesn't exist, assume it's 0.
     let mut count = env.storage().instance().get(&COUNTER).unwrap_or(0);
 
@@ -30,6 +30,6 @@ impl CounterEvent {
     env.events().publish((COUNTER, INCREMENT), count);
 
     // Return the new counter value.
-    count
+    log!(&env, "The incremented count is {}", count);
   }
 }

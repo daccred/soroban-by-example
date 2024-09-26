@@ -1,0 +1,34 @@
+import { Playground } from '../components';
+
+# Data Locations [Soroban Data Locations]
+
+```rust
+// [!include ~/snippets/data-locations.rs]
+```
+
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}`  Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[contracttype]` Used to define the type of a contract. It's essential for specifying the contract's capabilities, permissions, and the kind of interactions it can have with other contracts or with the blockchain itself.
+
+`#[contract]`  Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code it
+self.
+
+## Explanation
+
+The `setup` function intializes the instance storage method using the DataKey `enum` created under `contracttype` keyword.
+
+Enums (or enumerations) in Rust are a data type that allows you to define a set of named constants. They're useful for representing values that can only be one of a fixed set of possibilities.
+
+The `extend_instance` function extends the set TTL (Time-To-Live) for the persistent storage to 10000 ledgers if less than 2000 ledgers. It uses the value derived from `DataKey` established above.
+
+## Run in Playground
+
+<Playground okashiID="blpbsfypzvnepqsvzftrrcxiwjyk" />
