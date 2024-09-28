@@ -1,0 +1,43 @@
+import { Playground } from '../components';
+
+# Error Definition [Soroban Error Definition]
+
+```rust
+// [!include ~/snippets/error-definition.rs]
+```
+
+## Guides
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[contracterror]` This attribute indicates that the error type is specifically designed for contract-related errors. It might trigger additional error handling or logging mechanisms within the contract context.
+
+`#[derive(Copy, Clone, Debug, Eq, PartialEq, PartialOrd, Ord)]` These traits are derived to provide essential functionality for the error type:
+
+-   Copy: Allows the error to be copied efficiently, potentially for logging or reporting purposes.
+-   Clone: Enables creating copies of the error, useful for various scenarios like error propagation or handling.
+-   Debug: Provides a human-readable representation of the error, aiding in debugging and logging.
+-   Eq: Defines equality comparison for the error type, allowing for checking if two errors are the same.
+-   PartialEq: Defines partial equality comparison, which might handle cases where the error type has additional fields that don't affect equality.
+-   PartialOrd: Defines partial ordering for the error type, allowing for comparisons based on certain criteria.
+-   Ord: Defines total ordering for the error type, enabling consistent sorting and comparison.
+
+`#[repr(u32)]` This attribute specifies that the error type should be represented as a 32-bit unsigned integer. This might be useful for efficient storage or transmission of error codes.
+
+`#[contract]` Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code itself.
+
+## Explanation
+
+For the `count` value, the `mut` keyword was used to declare it as a mutable variable. Mutable variables can have their values changed after they are initially defined. This allows for more flexibility and dynamic behavior in your Rust code.
+
+In Rust, `Ok` and `Err` are fundamental keywords for handling errors in a robust and type-safe manner. They form the core of Rust's option and result types, which are essential for expressing computations that might fail.
+
+## Run in Playground
+
+<Playground okashiID="anbkvmunevzxjsqsspbykqqhlxyj" />
