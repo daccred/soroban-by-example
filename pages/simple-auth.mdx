@@ -1,0 +1,46 @@
+import { Playground } from '../components';
+
+# Simple Auth [Soroban Simple Authentication]
+
+```rust
+// [!include ~/snippets/simple-auth.rs]
+```
+
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[contracttype]` Used to define the type of a contract. It's essential for specifying the contract's capabilities, permissions, and the kind of interactions it can have with other contracts or with the blockchain itself.
+
+`#[contract]` Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code it
+self.
+
+## Explanation
+
+The DataKey `enum` created under `contracttype` keyword is used to hold the Counter attribute which in turn refers to an Address value.
+
+Enums (or enumerations) in Rust are a data type that allows you to define a set of named constants. They're useful for representing values that can only be one of a fixed set of possibilities.
+
+The line `user.require_auth()` requires `user` to have authorized call of the `increment` of this contract with all the arguments passed to `increment`, i.e. `user` and `value`. This will panic if auth fails for any reason. When this is called, Soroban host performs the necessary authentication, manages replay prevention and enforces the user's authorization policies.
+
+The contracts normally shouldn't worry about these details and just write code in generic fashion using `Address` and `require_auth` (or `require_auth_for_args`). `user.require_auth()` is equilvalent to: user.require_auth_for_args((&user, value).into_val(&env));
+
+The line `user.require_auth_for_args((value,).into_val(&env))` has less arguments but is equivalent in authorization scope to the above calls (the user address doesn't have to be included in args as it's guaranteed to be authenticated).
+
+To create a key, a deep clone of the user object is done via `user.clone()`. In Rust, clone() is a method that creates a deep copy of the object it's called on. This means that it allocates new memory for the cloned object and copies all the data from the original object to the new one.
+
+For the `count` value, the `mut` keyword was used to declare it as a mutable variable. Mutable variables can have their values changed after they are initially defined. This allows for more flexibility and dynamic behavior in your Rust code.
+
+`env.storage().persistent().set(&key, &count)` saves the count, using the key created earlier.
+
+In Rust the return keyword can be left out when returning a value at the end of a function. Hence `count` simply outputs the calculated value from the logic above.
+
+## Run in Playground
+
+<Playground okashiID="bghyhnhrrfswmpasuuaazrjticvr" />

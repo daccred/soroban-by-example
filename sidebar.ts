@@ -45,6 +45,10 @@ const sidebar = [
             { text: 'Loops', link: '/loops' },
         ],
     },
+    {
+        text: 'Authentication',
+        items: [{ text: 'Simple Authentication', link: '/simple-auth' }],
+    },
 ];
 
 export default sidebar;
