@@ -1,0 +1,45 @@
+import { Playground } from '../components';
+
+# Token Donations [Soroban Token Donations]
+
+```rust
+// [!include ~/snippets/token-donations.rs]
+```
+
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code itself.
+
+`impl` Defines trait implementations, which specify how a type conforms to a particular trait.
+
+`TryFromVal` Converts values from one type to another, potentially returning an error if the conversion is not possible.
+
+`ConversionError` Will likely be defined elsewhere in the code and represents the possible errors that can occur during the conversion. If no errors the `Ok` keyword will return the appropriate response.
+
+`into()` This method is used to convert the `u32` value to a `Val` value, assuming that the `Val` type has an implementation of the `From<u32>` trait.
+
+`fn` This keyword is used to define functions in Rust.
+
+`trait` This keyword defines interfaces in Rust, which specify a set of methods and associated functions that a type must implement to conform to the trait.
+
+`#[contract]` Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly.
+
+## Explanation
+
+`initialize` Sets the recipient address and the token that will be accepted as a donation.
+
+`donate` Donates specifiied amount units of the accepted token.
+
+`withdraw` Transfers all donation amounts to recipient. Can be called by anyone; this can be noted by the fact that the `transfer()` method is not connected to an initialized `client` mechanism.
+
+`token` and `recipient` each retrieve Address values as identified by their respective names.
+
+## Run in Playground
+
+<Playground okashiID="ahcwfklzqklwrkawwahjmoyugxae" />
