@@ -1,0 +1,57 @@
+import { Playground } from '../components';
+
+# File Storage [Soroban File Storage]
+
+```rust
+// [!include ~/snippets/file-storage.rs]
+```
+
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code itself.
+
+`enum` This functionality in Rust allows one to define a type with a fixed set of values. It enables pattern matching, discriminant unions, as well as option and return types.
+
+`#[contract]` Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly.
+
+## Explanation
+
+#### Report Management
+
+`upload_report` This function takes various details about a report (subject, date of incident, location, etc.) and a secret key for access. It creates a Report struct, stores it with the secret key as a key, increments a report count, saves the key in a list of report keys, and finally uploads a default update with "submitted" status.
+
+`fetch_report` This function retrieves a specific report based on its secret key.
+
+`fetch_all_reports` This function iterates through all report keys, retrieves each report using the fetch_report function, and stores them in a map with the secret key as the key.
+
+`get_report_count` This function retrieves the total number of reports stored.
+
+`get_all_report_keys` This function retrieves the list of all secret keys associated with reports.
+
+#### Report Update Management
+
+`upload_report_update` This function allows uploading updates for a report. It takes details like content, status, and date of submission along with the report's secret key and a unique update key. It stores the update information, increments an update count for the report, saves the update key in a list of all update keys, and stores the updated count.
+
+`fetch_report_update` This function retrieves a specific report update based on its update key.
+
+`fetch_all_report_updates` This function iterates through all update keys, retrieves each update using the fetch_report_update function, and filters them based on the provided report's secret key, returning only updates for that specific report.
+
+`get_report_update_count` This function retrieves the total number of updates for a specific report identified by its secret key.
+
+#### Contract Upgrade
+
+`init` This function is likely called during contract deployment. It stores the administrator address in the contract storage.
+
+`version` This function simply returns the current version of the contract (version 1 in this case).
+
+`upgrade` This function allows upgrading the contract code. It retrieves the administrator address, checks if the caller is the admin using require_auth, and updates the contract's Wasm code with the provided new hash if authorized.
+
+## Run in Playground
+
+<Playground okashiID="amjzhstbmpbwafaqrhoffawmqtui" />

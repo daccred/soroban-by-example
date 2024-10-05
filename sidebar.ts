@@ -43,6 +43,8 @@ const sidebar = [
             { text: 'Only Owner', link: '/only-owner' },
             { text: 'Multisig', link: '/multisig' },
             { text: 'Loops', link: '/loops' },
+            { text: 'Token Donations', link: '/token-donations' },
+            { text: 'File Storage', link: '/file-storage' },
         ],
     },
     {
