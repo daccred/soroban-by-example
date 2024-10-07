@@ -45,6 +45,7 @@ const sidebar = [
             { text: 'Loops', link: '/loops' },
             { text: 'Token Donations', link: '/token-donations' },
             { text: 'File Storage', link: '/file-storage' },
+            { text: 'Event Ticket', link: '/event-ticket' },
         ],
     },
     {

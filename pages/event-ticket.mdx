@@ -1,0 +1,44 @@
+import { Playground } from '../components';
+
+# Event Ticket [Soroban Event Ticket]
+
+```rust
+// [!include ~/snippets/event-ticket.rs]
+```
+
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code itself.
+struct
+`enum` This functionality in Rust allows one to define a type with a fixed set of values. It enables pattern matching, discriminant unions, as well as option and return types.
+
+`struct` This is a user-defined data type that groups related data fields under a single name.
+
+`#[derive(Clone)]` This attribute in Rust Soroban is used to automatically implement the Clone trait for a struct or enum. The Clone trait allows you to create a copy of an object, which is often necessary for various operations in programming.
+
+`#[contracttype]` This attribute is used to define a custom contract type in Rust Soroban. Contract types are essential for defining the interface and behavior of contracts on the Soroban blockchain.
+
+`#[contract]` Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly.
+
+## Explanation
+
+`initialize_sale` This function is responsible for setting up a ticket sale. After completing the authorization process, it transfers assets, initializes the sale and stores the sales data.
+
+`purchase` This function handles the purchase of tickets in the sale. After completing the authorization process, it does the following:
+
+-   retrieving sales details
+-   calculating purchase details
+-   checking buyer balance
+-   transferring funds
+-   calculating commissions
+-   distributing funds
+
+## Run in Playground
+
+<Playground okashiID="bmykdhyezmimuhhnuowwwflxhmvu" />
