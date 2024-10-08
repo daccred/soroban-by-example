@@ -1,0 +1,40 @@
+import { Playground } from '../components';
+
+# Nested Contracts [Soroban Contract in Contract Authorization]
+
+```rust
+// [!include ~/snippets/nested-contracts.rs]
+```
+
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[contract]` Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly
+
+## Explanation
+
+#### ContractA
+
+-   Calls the `authorized_fn_b` function in `ContractB`.
+-   Authorizes itself as the current contract using `authorize_as_current_contract`.
+-   The authorization includes a `SubContractInvocation` for `ContractC`. The `SubContractInvocation` structure is used to define the details of a subcontract call. The `SubContractInvocation` specifies the contract address, function name (`authorized_fn_c`), and arguments (the current contract's address).
+-   This allows `ContractA` to call `authorized_fn_c` in `ContractC` on behalf of itself.
+
+#### ContractB
+
+-   The `authorized_fn_b` function requires the caller to have authorization.
+-   It creates a client for `ContractC` and calls `authorized_fn_c` in `ContractC`, passing the authorizer's address.
+
+#### ContractC
+
+-   The `authorized_fn_c` function requires the caller to have authorization.
+-   It simply checks the caller's authorization and doesn't perform any additional actions.
+
+## Run in Playground
+
+<Playground okashiID="bwtjsbnthehyjyygukmwzvxzlsdo" />

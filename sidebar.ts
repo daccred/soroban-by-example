@@ -48,6 +48,7 @@ const sidebar = [
             { text: 'File Storage', link: '/file-storage' },
             { text: 'Event Ticket', link: '/event-ticket' },
             { text: 'Atomic Swap', link: '/atomic-swap' },
+            { text: 'Nested Contracts', link: '/nested-contracts' },
         ],
     },
     {
