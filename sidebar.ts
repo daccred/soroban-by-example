@@ -47,6 +47,7 @@ const sidebar = [
             { text: 'Token Donations', link: '/token-donations' },
             { text: 'File Storage', link: '/file-storage' },
             { text: 'Event Ticket', link: '/event-ticket' },
+            { text: 'Atomic Swap', link: '/atomic-swap' },
         ],
     },
     {

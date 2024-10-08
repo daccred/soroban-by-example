@@ -1,0 +1,39 @@
+import { Playground } from '../components';
+
+# Atomic Swap [Soroban Atomic Swap]
+
+```rust
+// [!include ~/snippets/atomic-swap.rs]
+```
+
+## Guide
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[contract]` Marks the struct as a Soroban smart contract. Soroban smart contracts are defined as Rust structs.
+
+`#[contractimpl]` Marks the implementation block as containing contract methods and transforms it to code that Soroban can evaluate directly.
+
+## Explanation
+
+`swap` This function takes in the following parameters:
+
+-   `env`: The current environment, providing access to contract state and functionality.
+-   `a` and `b`: The addresses of the two parties involved in the swap.
+-   `token_a` and `token_b`: The addresses of the tokens being exchanged.
+-   `amount_a` and `amount_b`: The amounts of each token to be exchanged.
+-   `min_b_for_a` and `min_a_for_b`: Minimum acceptable amounts of the other token that each party is willing to receive.
+
+`if amount_b < min_b_for_a { ... }` This checks if the amount of token B being offered is less than the minimum acceptable amount for token A. If so, panics with an error message.
+
+`if amount_a < min_a_for_b { ... }` This performs a similar check as above, but for token A.
+
+`require_auth_for_args(...)` Ensures that the parties a and b have authorized the transaction by providing the correct arguments.
+
+`move_token` This function transfers the tokens through the contract's address to ensure that both parties receive their respective tokens simultaneously.
+
+## Run in Playground
+
+<Playground okashiID="arpmpxgdrdpgmcploxpfccywxref" />
