@@ -1,5 +1,5 @@
 #![no_std]
-use soroban_sdk::{contract, contracttype, contractimpl, Address, Env, token, Symbol};
+use soroban_sdk::{contract, contracttype, contractimpl, Address, Env, token, Symbol, log};
 
 #[derive(Clone)]
 #[contracttype]
@@ -115,6 +115,9 @@ impl TicketContract {
         let tickets_to_buy = amount.clone() / 100;
         let buy_amount = (tickets_to_buy.clone() * ticket_constraint.service_fee.clone()) + buyer_service_fee.clone();
 
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Buy amount: {}", buy_amount);
+
         // Check if the buyer has enough balance
         let native = token::Client::new(&env, &ticket_sale.native_address.clone());
         let native_balance = native.balance(&buyer.clone());
@@ -122,23 +125,38 @@ impl TicketContract {
             panic!("Insufficient balance");
         }
 
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Native balance: {}", native_balance);
+
         // Transfer total transfer amount from buyer to contract
         let purchase_total = buy_amount.clone() * 100000;
         let contract = env.current_contract_address();
         let xlm = token::Client::new(&env, &ticket_sale.native_address.clone());
         xlm.transfer(&buyer.clone(), &contract, &purchase_total);
 
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Purchase total: {}", purchase_total);
+
         // Commission is saved as a percentage 100 = 1%
         let issuer_commission = ticket_constraint.unitary_commission.clone() * (tickets_to_buy.clone() * ticket_sale.price_per_unit.clone()) / 10000;
         let distributor_service_fee = ticket_constraint.service_fee.clone();
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Issuer commission: {}", issuer_commission);
 
         // Transfer commissions from contract to issuer
         let amount_to_issuer = (issuer_commission.clone() + buyer_service_fee + distributor_service_fee.clone()) * 100000;
         xlm.transfer(&contract.clone(), &ticket_sale.issuer.clone(), &amount_to_issuer.clone());
 
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Amount to issuer: {}", amount_to_issuer);
+
         // Transfer rest of sale from contract to distributor (owner)
         let amount_to_distributor = purchase_total - amount_to_issuer;
         xlm.transfer(&contract.clone(), &ticket_sale.distributor, &amount_to_distributor);
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Amount to distributor: {}", amount_to_distributor);
 
         // Transfer asset from contract to buyer
         let asset = token::Client::new(&env, &asset_address.clone());

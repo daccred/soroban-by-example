@@ -1,5 +1,5 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, token, Address, Env, IntoVal};
+use soroban_sdk::{contract, contractimpl, token, Address, Env, IntoVal, log};
 
 #[contract]
 pub struct AtomicSwap;
@@ -17,6 +17,11 @@ impl AtomicSwap {
         amount_b: i128,
         min_a_for_b: i128,
     ) {
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Amount A: {}, Amount B: {}", amount_a, amount_b);
+        log!(&env, "Minimum B amount for A: {}, Minimum A amount for B: {}", min_b_for_a, min_a_for_b);
+
         if amount_b < min_b_for_a {
             panic!("not enough token B for token A");
         }

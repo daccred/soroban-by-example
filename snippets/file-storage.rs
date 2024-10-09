@@ -1,5 +1,5 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, contracttype, symbol_short, Address, BytesN, Env, Map, String, Symbol, Vec};
+use soroban_sdk::{contract, contractimpl, contracttype, symbol_short, Address, BytesN, Env, Map, String, Symbol, Vec, log};
 
 #[contracttype]
 #[derive(Debug, Clone)]
@@ -120,6 +120,9 @@ impl ReportContract {
             }
         }
 
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Reports: {}", reports);
+
         reports
     }
 
@@ -195,6 +198,9 @@ impl ReportContract {
                 }
             }
         }
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Updates: {}", updates);
 
         updates
     }
