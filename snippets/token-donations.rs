@@ -1,5 +1,5 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, Env, Address, Val, TryFromVal, ConversionError, token};
+use soroban_sdk::{contract, contractimpl, Env, Address, Val, TryFromVal, ConversionError, token, log};
 
 #[derive(Clone, Copy)]
 pub enum DataKey {
@@ -99,6 +99,9 @@ impl DonationsTrait for Donations {
         let recipient = get_donations_recipient(&e);
 
         transfer(&e, &recipient, &get_balance(&e, &token));
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&e, "Token: {}, Recipient: {}", token, recipient);
     }
 
     // Get the token address that is accepted as donations
