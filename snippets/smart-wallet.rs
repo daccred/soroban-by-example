@@ -3,7 +3,7 @@
 #[contract]
 struct SmartWallet;
 
-use soroban_sdk::{auth::Context, contract, contractimpl, contracttype, BytesN, Env, Vec};
+use soroban_sdk::{auth::Context, contract, contractimpl, contracttype, BytesN, Env, Vec, log};
 
 #[derive(Clone)]
 #[contracttype]
@@ -20,6 +20,9 @@ impl SmartWallet {
         }
 
         env.storage().instance().set(&DataKey::Owner, &public_key);
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Public key: {}", public_key);
     }
 
     // Verifies the contract is authorized by the owner.
@@ -35,6 +38,9 @@ impl SmartWallet {
             .instance()
             .get::<_, BytesN<32>>(&DataKey::Owner)
             .unwrap();
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Public key: {}", public_key);
 
         env.crypto()
             .ed25519_verify(&public_key, &signature_payload.into(), &signature);

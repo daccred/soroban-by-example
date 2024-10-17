@@ -1,7 +1,7 @@
 #![no_std]
 
 use soroban_sdk::{
-    contract, contractimpl, contractclient, contracterror, contracttype, Address, Env, IntoVal
+    contract, contractimpl, contractclient, contracterror, contracttype, Address, Env, IntoVal, log
 };
 
 #[allow(dead_code)]
@@ -58,8 +58,14 @@ impl Contract {
             .instance()
             .get::<_, Address>(&StorageKey::Admin)
         {
+            /// @dev should remove logs before deploying smart contracts
+            log!(&env, "Admin address: {}", admin);
+
             admin.require_auth();
         };
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Admin address: {}", new_admin);
 
         env.storage().instance().set(&StorageKey::Admin, &new_admin);
     }
@@ -108,6 +114,9 @@ impl Contract {
                 epoch,
             ))
             .unwrap_or_default();
+
+        /// @dev should remove logs before deploying smart contracts
+        log!(&env, "Minter stats: {}, Config: {}, Epoch: {}", stats, config, epoch);
 
         Ok((config, epoch, stats))
     }
@@ -162,6 +171,9 @@ impl Contract {
                 .temporary()
                 .get::<_, MinterStats>(&minter_stats_key)
                 .unwrap_or_default();
+
+            /// @dev should remove logs before deploying smart contracts
+            log!(&env, "Minter stats: {}, Config: {}, Epoch: {}", minter_stats, config, epoch);
 
             let new_minter_stats = MinterStats {
                 consumed_limit: minter_stats.consumed_limit + amount,
