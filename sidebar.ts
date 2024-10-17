@@ -51,6 +51,7 @@ const sidebar = [
             { text: 'Nested Contracts', link: '/nested-contracts' },
             { text: 'Contract Deployment', link: '/contract-deployment' },
             { text: 'Mintlock', link: '/mintlock' },
+            { text: 'Smart Wallet', link: '/smart-wallet' },
         ],
     },
     {
