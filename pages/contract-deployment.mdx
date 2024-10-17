@@ -1,0 +1,37 @@
+import { Playground } from '../components';
+
+# Contract Deployment [Soroban Contract Deployment]
+
+```rust
+// [!include ~/snippets/contract-deployment.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code itself.
+
+#### Authorization
+
+If `deployer` is not the current contract, it checks if deployer has the necessary permissions.
+
+#### Deployment
+
+Uses the `deployer`'s address and salt to create a new contract address.
+
+Deploys the Wasm module with the given hash to the new address.
+
+#### Initialization
+
+Invokes the specified initialization function on the deployed contract with the provided arguments.
+
+#### Return (Output)
+
+Returns a tuple containing the address of the deployed contract and the result of the initialization function.
+
+## Run in Playground
+
+<Playground okashiID="bmfjrsnoyivdfxiwxqbgiuzmpqfp" />
