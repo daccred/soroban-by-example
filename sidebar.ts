@@ -50,6 +50,7 @@ const sidebar = [
             { text: 'Atomic Swap', link: '/atomic-swap' },
             { text: 'Nested Contracts', link: '/nested-contracts' },
             { text: 'Contract Deployment', link: '/contract-deployment' },
+            { text: 'Mintlock', link: '/mintlock' },
         ],
     },
     {
