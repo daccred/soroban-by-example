@@ -49,6 +49,11 @@ const sidebar = [
             { text: 'Event Ticket', link: '/event-ticket' },
             { text: 'Atomic Swap', link: '/atomic-swap' },
             { text: 'Nested Contracts', link: '/nested-contracts' },
+            { text: 'Contract Deployment', link: '/contract-deployment' },
+            { text: 'Mintlock', link: '/mintlock' },
+            { text: 'Smart Wallet', link: '/smart-wallet' },
+            { text: 'Token Withdraw Timelock', link: '/token-withdraw-timelock' },
+            { text: 'Upgradeable Contract', link: '/upgradeable-contract' },
         ],
     },
     {

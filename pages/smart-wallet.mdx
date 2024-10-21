@@ -1,0 +1,25 @@
+import { Playground } from '../components';
+
+# Smart Wallet [Soroban Smart Wallet]
+
+```rust
+// [!include ~/snippets/smart-wallet.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[derive(Clone)]` This allows copying the DataKey enum easily. `#[contracttype]` Exposes this enum to other contracts.
+
+`init` checks if the `Owner` key already exists in the contract's storage. If it doesn't exist, the function sets the `Owner` key in the storage to the provided public key. If it already exists, the function panics with an error message. This prevents accidentally overwriting the owner's key.
+
+`#[allow(non_snake_case)]` This allows the function name to be \_\_check_auth which doesn't follow Rust's snake_case convention. This might be necessary for compatibility with Soroban's API.
+
+`__check_auth` retrieves the stored owner's public key from the contract's storage using the `DataKey::Owner`. It then uses the `ed25519_verify` function from the `crypto` module of the Soroban SDK to verify the signature. This ensures that the caller has the private key corresponding to the stored public key (i.e., the owner).
+
+## Run in Playground
+
+<Playground okashiID="aujavnhyvmknnlfwdmyvhpaxovqo" />

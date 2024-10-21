@@ -1,0 +1,25 @@
+import { Playground } from '../components';
+
+# Upgradeable Contract [Soroban Upgradeable Contract]
+
+```rust
+// [!include ~/snippets/upgradeable-contract.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`DataKey` This is an enumerated type (`enum`) used to define different keys for storing data in the contract's storage. Currently, the only option is `Admin`.
+
+`Error` This is another enumerated type defining a specific error code: `AlreadyInitialized`.
+
+`init` This function checks if the `Admin` key already exists in storage. If it does, it returns the `AlreadyInitialized` error. Otherwise, it sets the `Admin` key with the provided `admin` address and returns success (`Ok(())`).
+
+`upgrade` This retrieves the current administrator address from storage using the Admin key. It then uses `require_auth` (likely from the Soroban SDK) to ensure only the administrator can call this function. Finally, it utilizes the `deployer` functionality from the environment to update the contract's bytecode with the provided `new_wasm_hash`.
+
+## Run in Playground
+
+<Playground okashiID="aruqamwoejupfckbssllmeynyirb" />

@@ -1,0 +1,37 @@
+import { Playground } from '../components';
+
+# Mintlock [Soroban Mintlock]
+
+```rust
+// [!include ~/snippets/mintlock.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`MintInterface` (marked with `#[allow(dead_code)]`): This defines an interface for a possible external contract named "MintClient" that can be called for minting functionality.
+
+`Error` enum: Defines different error codes for the contract, like `NotAuthorizedMinter`, `DailyLimitInsufficient`, and `NegativeAmount`.
+
+`StorageKey` enum: Defines different keys used to access data in the contract's storage. These include `Admin` to store the admin address, `Minter(contract, minter)` to store a minter's configuration for a specific contract, and `MinterStats(contract, minter, epoch_length, epoch)` to store a minter's stats for a specific epoch.
+
+`MinterConfig` Defines the configuration for a minter, including their daily limit and the epoch length for tracking usage.
+
+`MinterStats` Stores the amount a minter has minted within the current epoch.
+
+`set_admin` This function sets the contract's admin address. Only the current admin can call this function.
+
+`admin` This function returns the current admin address.
+
+`set_minter` This function sets the configuration for a minter for a specific contract. Only the admin can call this function.
+
+`minter` This function retrieves the configuration, current epoch, and current epoch stats for a specific minter.
+
+`mint` This is the core function for minting. It allows authorized minters to mint a specific amount for a recipient.
+
+## Run in Playground
+
+<Playground okashiID="bduoaqseyyywpyoapxmoyxwxswzp" />
