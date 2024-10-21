@@ -1,0 +1,35 @@
+import { Playground } from '../components';
+
+# Token Withdraw Timelock [Soroban Token Withdraw Timelock]
+
+```rust
+// [!include ~/snippets/token-withdraw-timelock.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`#[derive(Clone)]` This allows copying the DataKey enum easily. `#[contracttype]` Exposes this enum to other contracts.
+
+`DataKey` This enum defines storage keys for the contract (`Init` and `Balance`).
+
+`TimeBoundKind` This enum represents the type of time restriction (`Before` or `After`).
+
+`TimeBound` This struct stores the time restriction type and timestamp.
+
+`ClaimableBalance` This struct holds information about the deposited funds, including token address, amount, list of claimants, and the time restriction.
+
+`check_time_bound` This compares the current ledger timestamp with the provided time bound (before or after).
+
+`deposit` This function in the contract allows users to deposit funds into a specified token contract for a set of claimants with a time restriction. It stores the deposit information and marks the contract as initialized to prevent double usage.
+
+`claimant` This function allows authorized claimants to claim their share of the deposited funds after the specified time restriction has been met. It verifies the claimant's identity and transfers the claimable amount to them, removing the claimed balance from storage to prevent further claims.
+
+`is_initialized` This helper function checks if the `Init` key exists in the contract storage, indicating if the contract has already been initialized.
+
+## Run in Playground
+
+<Playground okashiID="boytqxcsfkdykimuisewudqmmhek" />

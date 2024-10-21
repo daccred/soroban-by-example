@@ -52,6 +52,7 @@ const sidebar = [
             { text: 'Contract Deployment', link: '/contract-deployment' },
             { text: 'Mintlock', link: '/mintlock' },
             { text: 'Smart Wallet', link: '/smart-wallet' },
+            { text: 'Token Withdraw Timelock', link: '/token-withdraw-timelock' },
         ],
     },
     {
