@@ -54,6 +54,7 @@ const sidebar = [
             { text: 'Smart Wallet', link: '/smart-wallet' },
             { text: 'Token Withdraw Timelock', link: '/token-withdraw-timelock' },
             { text: 'Upgradeable Contract', link: '/upgradeable-contract' },
+            { text: 'DAO Voting & Proposals', link: '/dao-voting-and-proposals' },
         ],
     },
     {

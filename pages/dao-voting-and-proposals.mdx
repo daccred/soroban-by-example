@@ -1,0 +1,49 @@
+import { Playground } from '../components';
+
+# DAO Voting and Proposals [Soroban DAO Voting & Proposals]
+
+```rust
+// [!include ~/snippets/dao-voting-and-proposals.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code itself.
+
+`enum` This functionality in Rust allows one to define a type with a fixed set of values. It enables pattern matching, discriminant unions, as well as option and return types.
+
+`struct` This is a user-defined data type that groups related data fields under a single name.
+
+`Vote` Represents a vote on a proposal with its active status (whether counted) and the vote value (true or false).
+
+`Proposal` Represents a proposal for a transaction with details like execution status, expiration date, vote counts, and the transaction details (contract, function, and arguments).
+
+`Transaction` Represents the transaction details of a proposal, specifying the target contract, function, and arguments.
+
+`GovState` Represents the overall governance state with details like the next proposal ID, voting period, whitelist of allowed voters, quorum requirement, and supermajority settings.
+
+`GovError` An enum defining different errors that can occur during contract execution.
+
+`initialize` This function initializes the governance state with supermajority settings, voting period, whitelist of allowed voters, and quorum requirement.
+
+`propose_tx` This function allows a whitelisted user to propose a transaction by specifying the target contract, function, arguments, and caller address.
+
+`vote_proposal` This function allows a whitelisted user to vote on a proposal with a specific ID and their vote value (true or false).
+
+`close_proposal` This function closes a proposal after its expiration and checks if it meets the quorum and voting requirements. If successful, it executes the proposed transaction on the target contract.
+
+`get_state` This function retrieves the current governance state.
+
+`get_proposal` This function retrieves a specific proposal by its ID.
+
+`whitelisted` This function checks if a user address is present in the whitelist.
+
+`get_vote` This function retrieves the vote cast by a user on a specific proposal.
+
+## Run in Playground
+
+<Playground okashiID="agjnwerdpbrftqawauqenqgusiqn" />
