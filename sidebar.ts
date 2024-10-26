@@ -55,6 +55,7 @@ const sidebar = [
             { text: 'Token Withdraw Timelock', link: '/token-withdraw-timelock' },
             { text: 'Upgradeable Contract', link: '/upgradeable-contract' },
             { text: 'DAO Voting & Proposals', link: '/dao-voting-and-proposals' },
+            { text: 'Vesting Contract', link: '/vesting-contract' },
         ],
     },
     {

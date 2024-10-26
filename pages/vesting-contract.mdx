@@ -1,0 +1,38 @@
+import { Playground } from '../components';
+
+# Vesting Contract [Soroban Vesting Contract]
+
+```rust
+// [!include ~/snippets/vesting-contract.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`pub` Marks a function as external, meaning it can be invoked outside of the context of the contract code itself.
+
+`enum` This functionality in Rust allows one to define a type with a fixed set of values. It enables pattern matching, discriminant unions, as well as option and return types.
+
+`struct` This is a user-defined data type that groups related data fields under a single name.
+
+`new_vesting` This function creates a new vesting contract, specifying the token, beneficiary, start time, duration, and administrator.
+
+`save_state` This function saves the provided State object to the contract's storage under the specified ID key.
+
+`get_state: This function retrieves the State object for a given vesting instance ID from storage.
+time: This function calculates the elapsed vesting time based on the current timestamp and the vesting start time.
+
+`retrievable_balance_internal` This internal function calculates the amount of tokens currently available for the beneficiary to withdraw, considering elapsed vesting time and already withdrawn amount.
+
+`retrievable_balance` This function is a public wrapper for retrievable_balance_internal. It retrieves the state for a given ID and then calls the internal function to calculate the retrievable balance.
+
+`add_vest` This adds more tokens to an existing vesting contract. Only the administrator can call this function.
+
+`pay_out` This allows the beneficiary to claim the vested tokens that are currently available.
+
+## Run in Playground
+
+<Playground okashiID="azhxltjpjzyjqgmlhvnrvbgvqudy" />
