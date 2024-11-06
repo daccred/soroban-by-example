@@ -1,0 +1,49 @@
+import { Playground } from '../components';
+
+# Flash Loans [Soroban Flash Loans]
+
+```rust
+// [!include ~/snippets/token-erc20.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`DAY_IN_LEDGERS`, `INSTANCE_BUMP_AMOUNT`, and `INSTANCE_LIFETIME_THRESHOLD` These constants are related to the storage management of the contract's state. They define how long data should be kept and when it should be refreshed.
+
+`BALANCE_BUMP_AMOUNT` and `BALANCE_LIFETIME_THRESHOLD` These constants are related to the storage management of individual account balances.
+
+`AllowanceDataKey` This represents the key for storing an allowance, including the from address and the spender address.
+
+`AllowanceValue` This represents the value of an allowance, including the `amount` and `expiration_ledger`.
+
+`DataKey` This an enum defining different types of data keys used in the contract, such as allowances, balances, and administrative information.
+
+#### Helper Functions
+
+**Administrator Management** functions check, read, and write the current administrator of the contract.
+
+**Allowance Management** functions read, write, and spend allowances.
+
+**Balance Management** functions read, write, receive, and spend balances.
+
+**Metadata Management** functions read and write the token's decimal places, name, and symbol.
+
+**Amount Validation** function ensure that amounts are non-negative.
+
+#### Token Contract
+
+**Initialization** triggers the contract with an administrator, decimal places, name, and symbol.
+
+**Minting** allows the administrator to mint new tokens and assign them to a specific address.
+
+**Setting Admin** allows the current administrator to transfer administrative privileges to a new address.
+
+**Allowance and Transfer Functions** implement the standard ERC-20 token functions for approving, transferring, and burning tokens.
+
+## Run in Playground
+
+<Playground okashi="bsrenbqpssfluzchahctyvbpnezg" />
