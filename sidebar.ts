@@ -56,6 +56,7 @@ const sidebar = [
             { text: 'Upgradeable Contract', link: '/upgradeable-contract' },
             { text: 'DAO Voting & Proposals', link: '/dao-voting-and-proposals' },
             { text: 'Vesting Contract', link: '/vesting-contract' },
+            { text: 'Flash Loans', link: '/flash-loans' },
         ],
     },
     {
