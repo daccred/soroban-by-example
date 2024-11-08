@@ -35,6 +35,7 @@ const sidebar = [
             { text: 'Token Interface (SEP)', link: '/token-interface' },
             { text: 'Admin Interface(SEP)', link: '/admin-interface' },
             { text: 'Timelock', link: '/timelock' },
+            { text: 'Fungible Token', link: '/token-erc20' },
         ],
     },
     {
@@ -54,6 +55,9 @@ const sidebar = [
             { text: 'Smart Wallet', link: '/smart-wallet' },
             { text: 'Token Withdraw Timelock', link: '/token-withdraw-timelock' },
             { text: 'Upgradeable Contract', link: '/upgradeable-contract' },
+            { text: 'DAO Voting & Proposals', link: '/dao-voting-and-proposals' },
+            { text: 'Vesting Contract', link: '/vesting-contract' },
+            { text: 'Flash Loans', link: '/flash-loans' },
         ],
     },
     {

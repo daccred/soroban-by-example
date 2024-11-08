@@ -1,0 +1,25 @@
+import { Playground } from '../components';
+
+# Flash Loans [Soroban Flash Loans]
+
+```rust
+// [!include ~/snippets/flash-loans.rs]
+```
+
+## Explanation
+
+`#![no_std]` This attribute prevents linking to the standard library, making the code lighter and more efficient for Soroban contracts. It's big so we save on size.
+
+`use soroban_sdk::{contract, contractimpl, Env, log}` Imports stuffs from the Soroban SDK. `Env` is basic Soroban type, we need it because we can't use the Rust standard library.
+
+`ReceiverError` This defines a custom error type with two variants - one indicating initialization failure, and another indicating the contract requiring initialization before use.
+
+`compute_fee` This function calculates a fee based on the borrowed amount.
+
+`init` This is used to initialize the contract, the environment, token address, flash pool address, and loan amount are taken as arguments.
+
+`exec_op` This function implements the core functionality of the contract. It retrieves the stored token address, it returns an error if not found. It retrieves the borrowed amount. It calculates the total amount with the fee. It logs the total amount. It retrieves the flash loan pool address. It uses the `token_client` to approve the flash loan pool to withdraw the total amount plus fees. The approval is valid for the next transaction only (sequence number + 1).
+
+## Run in Playground
+
+<Playground okashi="bhpeyopxuoklaobukesgylmfdhxy" />
